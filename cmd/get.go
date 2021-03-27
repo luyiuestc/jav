@@ -87,6 +87,7 @@ func getdetaillist(ds []detail) {
 	length := len(ds)
 	for k := range ds {
 		if curindex >= limit && limit > 0 {
+                        end = true
 			return
 		}
 		if k%parallel == 0 {
