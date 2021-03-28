@@ -47,10 +47,9 @@ func getdetail(ds detail) {
 
 	c.OnHTML("body", func(pe *colly.HTMLElement) {
 		filepath := output + "/" + number
-                fmt.Println(filepath)
                 _, err := os.Stat(filepath)
                 if err == nil {
-                        fmt.Println(filepath,"已经存在!!!跳过")
+                        fmt.Println(number,"已经存在!!!跳过")
                         curindex--
                         return
                 }
@@ -70,7 +69,7 @@ func getdetail(ds detail) {
 				}
 				defer msf.Close()
 				_, _ = msf.WriteString(ms)
-				fmt.Println(number, "test磁力链接获取成功")
+				fmt.Println(number, "磁力链接获取成功")
 			}
 		})
 		if !nopic {
