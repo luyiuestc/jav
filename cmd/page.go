@@ -49,6 +49,7 @@ func getdetail(ds detail) {
 		filepath := output + "/" + number
                   _, err := os.Stat(filepath)
                 if err == nil {
+                        fmt.Println(filepath,"已经存在!!!跳过")
                         curindex--
                         return
                 }
