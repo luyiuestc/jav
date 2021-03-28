@@ -47,6 +47,11 @@ func getdetail(ds detail) {
 
 	c.OnHTML("body", func(pe *colly.HTMLElement) {
 		filepath := output + "/" + number
+                  _, err := os.Stat(filepath)
+                if err == nil {
+                        curindex--
+                        return
+                }
 		err := os.MkdirAll(filepath, 0777)
 		if err != nil {
 			fmt.Println(err)
