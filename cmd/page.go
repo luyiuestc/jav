@@ -47,7 +47,8 @@ func getdetail(ds detail) {
 
 	c.OnHTML("body", func(pe *colly.HTMLElement) {
 		filepath := output + "/" + number
-                  _, err := os.Stat(filepath)
+                fmt.Println(filepath)
+                _, err := os.Stat(filepath)
                 if err == nil {
                         fmt.Println(filepath,"已经存在!!!跳过")
                         curindex--
