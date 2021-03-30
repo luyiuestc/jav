@@ -59,6 +59,10 @@ func get(re int) {
 	rurl := base
 	if search != "" {
 		rurl += searchu + search
+                if curpage == 2 {
+                    end = true
+                    return
+                }
 	}
 	if curpage != 1 {
 		if strings.Index(rurl, "star") > -1 {
