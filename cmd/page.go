@@ -69,6 +69,7 @@ func getdetail(ds detail) {
 				}
 				defer msf.Close()
 				_, _ = msf.WriteString(ms)
+                                fmt.Println(curindex, " index")
 				fmt.Println(number, "磁力链接获取成功")
 			}
 		})
