@@ -40,13 +40,14 @@ func size(s string) float64 {
 
 func getmagnet(ms []magnet) (link string) {
 	var links []string
-	var maxsize int
+	var minsize int
+	minsize = 10*1024
 	for k := range ms {
 		if allmag && ms[k].link != ""{
 			links = append(links, ms[k].link)
 		} else {
-			if ms[k].size > maxsize && ms[k].link != ""{
-				maxsize = ms[k].size
+			if ms[k].size < minsize && ms[k].link != ""{
+				minsize = ms[k].size
 				if len(links) == 0 {
 					links = append(links, ms[k].link)
 				} else {
@@ -58,8 +59,8 @@ func getmagnet(ms []magnet) (link string) {
 	if caption {
 		maxsize = 0
 		for k := range ms {
-			if ms[k].caption && ms[k].size > maxsize {
-				maxsize = ms[k].size
+			if ms[k].caption && ms[k].size < minsize && ms[k].link != ""{
+				minsize = ms[k].size
 				if len(links) == 0 {
 					links = append(links, ms[k].link)
 				} else {
