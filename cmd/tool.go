@@ -57,7 +57,7 @@ func getmagnet(ms []magnet) (link string) {
 		}
 	}
 	if caption {
-		maxsize = 0
+		minsize = 10*1024
 		for k := range ms {
 			if ms[k].caption && ms[k].size < minsize && ms[k].link != ""{
 				minsize = ms[k].size
