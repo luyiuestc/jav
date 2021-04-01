@@ -42,10 +42,10 @@ func getmagnet(ms []magnet) (link string) {
 	var links []string
 	var maxsize int
 	for k := range ms {
-		if allmag {
+		if allmag && ms[k].link != ""{
 			links = append(links, ms[k].link)
 		} else {
-			if ms[k].size > maxsize {
+			if ms[k].size > maxsize && ms[k].link != ""{
 				maxsize = ms[k].size
 				if len(links) == 0 {
 					links = append(links, ms[k].link)
