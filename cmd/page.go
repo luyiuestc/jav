@@ -62,15 +62,17 @@ func getdetail(ds detail) {
 				magnets := getmagnetlist(parsescript(e.Text), link)
 				//获取磁链
 				ms := getmagnet(magnets)
-				msf, err := os.Create(filepath + "/magnet.txt")
-				if err != nil {
-					fmt.Println(number, "磁力链接获取失败", err)
-					return
+				if ms != "" {
+					msf, err := os.Create(filepath + "/magnet.txt")
+					if err != nil {
+						fmt.Println(number, "磁力文件创建失败", err)
+						return
+					}
+					defer msf.Close()
+					_, _ = msf.WriteString(ms)
+					fmt.Println(curindex, " index")
+					fmt.Println(number, "磁力链接获取成功")
 				}
-				defer msf.Close()
-				_, _ = msf.WriteString(ms)
-                                fmt.Println(curindex, " index")
-				fmt.Println(number, "磁力链接获取成功")
 			}
 		})
 		if !nopic {
