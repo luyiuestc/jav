@@ -46,7 +46,7 @@ func get(re int) {
 		})
 		if len(ds) == 0 {
 			if re < 4 {
-				fmt.Printf("第%d页获取失败,重试第%d次", curpage, re)
+				fmt.Printf("第%d页获取失败,重试第%d次\n", curpage, re)
 				re++
 				get(re)
 			} else {
@@ -75,7 +75,7 @@ func get(re int) {
 	err = c.Visit(rurl)
 	if err != nil {
 		if re < 4 {
-			fmt.Printf("第%d页获取失败,重试第%d次", curpage, re)
+			fmt.Printf("第%d页获取失败,重试第%d次\n", curpage, re)
 			re++
 			get(re)
 		} else {
