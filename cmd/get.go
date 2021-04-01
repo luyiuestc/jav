@@ -74,7 +74,7 @@ func get(re int) {
 	fmt.Printf("正在获取第%d页\n", curpage)
 	err = c.Visit(rurl)
 	if err != nil {
-		if re < 4 {
+		if re < 2 {
 			fmt.Printf("第%d页获取失败,重试第%d次\n", curpage, re)
 			re++
 			get(re)
